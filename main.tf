@@ -7,9 +7,9 @@ terraform {
   }
 
   cloud {
-    organization = "your-organization-name"
+    organization = "playground4220"
     workspaces {
-      name = "your-workspace-name"
+      name = "TF-Pipeline"
     }
   }
 }
