@@ -1,11 +1,22 @@
-variable "aws_region" {
-  description = "The AWS region to create resources in"
+variable "aws_access_key_id" {
+  description = "AWS Access Key ID"
   type        = string
-  default     = "us-west-2"
+  sensitive   = true
+}
+
+variable "aws_secret_access_key" {
+  description = "AWS Secret Access Key"
+  type        = string
+  sensitive   = true
+}
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
 }
 
 variable "bucket_name" {
-  description = "The name of the S3 bucket"
+  description = "Name of the S3 bucket"
   type        = string
 }
 
