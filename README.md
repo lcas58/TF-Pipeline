@@ -15,10 +15,12 @@ This project deploys a simple "Hello World" AWS Lambda function using Terraform 
    - Create an organization in Terraform Cloud if you haven't already
    - Create a new workspace for this project
    - Connect the workspace to this GitHub repository
+   - Generate an API token for Terraform CLI authentication
 3. Set up GitHub secrets:
    - AWS_ACCESS_KEY_ID: Your AWS Access Key ID
    - AWS_SECRET_ACCESS_KEY: Your AWS Secret Access Key
    - AWS_REGION: Your preferred AWS region (e.g., us-east-1)
+   - TF_API_TOKEN: Your Terraform Cloud API token
 4. Update the `main.tf` file:
    - Replace `playground4220` with your Terraform Cloud organization name
    - Replace `TF-Pipeline` with your Terraform Cloud workspace name
@@ -37,4 +39,4 @@ To modify the Lambda function's behavior, edit the `lambda/index.js` file. To ch
 
 ## Security Note
 
-By using HCP Terraform and GitHub Secrets, we're leveraging secure storage for sensitive information like AWS credentials. Never commit these values directly to your repository.
+By using Terraform Cloud and GitHub Secrets, we're leveraging secure storage for sensitive information like AWS credentials and Terraform API tokens. Never commit these values directly to your repository.
