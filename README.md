@@ -1,46 +1,40 @@
-# Terraform GitHub Actions Starter Template with HCP Terraform
+# Hello World Lambda Function
 
-This repository contains a starter template for using Terraform with GitHub Actions and HCP Terraform to manage infrastructure as code.
+This project deploys a simple "Hello World" AWS Lambda function using Terraform and GitHub Actions.
 
 ## Prerequisites
 
-- An AWS account
+- AWS account
 - GitHub account
-- HCP Terraform account
-- Terraform installed locally (for testing)
+- Terraform Cloud account
 
 ## Setup
 
 1. Fork this repository
-2. Set up an HCP Terraform workspace:
-   - Create an organization in HCP Terraform if you haven't already
+2. Set up a Terraform Cloud workspace:
+   - Create an organization in Terraform Cloud if you haven't already
    - Create a new workspace for this project
-   - Generate an API token for Terraform CLI authentication
+   - Connect the workspace to this GitHub repository
 3. Set up GitHub secrets:
-   - TF_API_TOKEN: Your HCP Terraform API token
+   - AWS_ACCESS_KEY_ID: Your AWS Access Key ID
+   - AWS_SECRET_ACCESS_KEY: Your AWS Secret Access Key
+   - AWS_REGION: Your preferred AWS region (e.g., us-east-1)
 4. Update the `main.tf` file:
-   - Replace `your-organization-name` with your HCP Terraform organization name
-   - Replace `your-workspace-name` with your HCP Terraform workspace name
-5. In HCP Terraform, add the following variables to your workspace:
-   - aws_access_key_id (marked as sensitive)
-   - aws_secret_access_key (marked as sensitive)
-   - aws_region
-   - bucket_name
-6. Customize the Terraform configuration in `main.tf` as needed
+   - Replace `playground4220` with your Terraform Cloud organization name
+   - Replace `TF-Pipeline` with your Terraform Cloud workspace name
 
-## Usage
+## Deployment
 
-- Push changes to the `main` branch to trigger the Terraform workflow
-- The workflow will run `terraform plan` on pull requests
-- Merging to `main` will run `terraform apply`
+The Lambda function will be automatically deployed when changes are pushed to the main branch. The GitHub Actions workflow will run Terraform to create or update the Lambda function in AWS.
+
+## Testing the Lambda Function
+
+After deployment, you can test the Lambda function using the AWS Console or AWS CLI.
 
 ## Customization
 
-- Modify `main.tf` to add or change resources
-- Update `variables.tf` to add new variables
-- Add outputs to `outputs.tf` as needed
-- Customize the GitHub Actions workflow in `.github/workflows/terraform.yml`
+To modify the Lambda function's behavior, edit the `lambda/index.js` file. To change the infrastructure configuration, modify the `main.tf` file.
 
 ## Security Note
 
-By using HCP Terraform, we're leveraging its secure variable storage for sensitive information like AWS credentials. Never commit these values directly to your repository.
+By using HCP Terraform and GitHub Secrets, we're leveraging secure storage for sensitive information like AWS credentials. Never commit these values directly to your repository.
